@@ -1,6 +1,6 @@
 class Contato:
     
-    def __init__(self,email,telefone):
+    def _init_(self,email,telefone):
         self.__email=[email]
         self.__telefone=[telefone]
 
@@ -40,7 +40,7 @@ class Contato:
 
 class Endereco:
     
-    def __init__(self,numero,rua,bairro,cidade,estado,pais):
+    def _init_(self,numero,rua,bairro,cidade,estado,pais):
         self.numero=numero
         self.rua=rua
         self.bairro=bairro
@@ -111,7 +111,7 @@ class Endereco:
     def pais(self,pais):
         self.__pais=pais
         
-    def __str__(self):
+    def _str_(self):
         r=f'''Rua:{self.rua}, Numero:{self.numero}, Bairro:{self.bairro}, Cidade:{self.cidade}, Estado:{self.estado}, Pais:{self.pais}'''
         return r
         
@@ -119,7 +119,7 @@ class Endereco:
         
 class Pessoa:
     
-    def __init__(self,nome,contato,endereco):
+    def _init_(self,nome,contato,endereco):
         self.__nome=None
         self.nome=nome
         self.contato=contato
@@ -164,7 +164,7 @@ class Pessoa:
             raise ValueError(f"Indice {indicie} não está no intervalo válido")
     
     
-    def __str__(self):
+    def _str_(self):
         retorno=f'Nome:{self.nome}\n\nE-Mails:\n'
         for i in self.contato.email:
             retorno+=f'{i}\n'
@@ -178,21 +178,22 @@ class Pessoa:
         return retorno
         
         
-
-contato=Contato('fyjhchilster.santos@gmail.com','64999786370')
-endereco=Endereco('2001','rua','Bairro','Jataí','GO','Brasil')
-hilster=Pessoa('Hilster Barbosa Santos',contato,endereco)
-print("_"*50,'Teste 1',"_"*50)
-print(hilster)
-hilster.contato.email='hilsterb.santos@gmail.com'
-print("_"*50,'Teste 2',"_"*50)
-print(hilster)
-hilster.contato.telefone='40028922'
-print("_"*50,'Teste 3',"_"*50)
-print(hilster)
-hilster.contato.remover_email(0)
-print("_"*50,'Teste 4',"_"*50)
-print(hilster)
-hilster.contato.remover_telefone(1)
-print("_"*50,'Teste 5',"_"*50)
-print(hilster)
+if _name_ == '_main_':
+        
+    contato=Contato('fyjhchilster.santos@gmail.com','64999786370')
+    endereco=Endereco('2001','rua','Bairro','Jataí','GO','Brasil')
+    hilster=Pessoa('Hilster Barbosa Santos',contato,endereco)
+    print(""*50,'Teste 1',""*50)
+    print(hilster)
+    hilster.contato.email='hilsterb.santos@gmail.com'
+    print(""*50,'Teste 2',""*50)
+    print(hilster)
+    hilster.contato.telefone='40028922'
+    print(""*50,'Teste 3',""*50)
+    print(hilster)
+    hilster.contato.remover_email(0)
+    print(""*50,'Teste 4',""*50)
+    print(hilster)
+    hilster.contato.remover_telefone(1)
+    print(""*50,'Teste 5',""*50)
+    print(hilster)
