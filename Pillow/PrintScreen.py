@@ -1,3 +1,4 @@
+#pip install Pillow
 from PIL import ImageGrab
 
 # Capturar a tela
