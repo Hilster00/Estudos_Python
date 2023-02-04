@@ -181,12 +181,23 @@ class Pessoa:
         
         
 
-def sala(Pessoa):
+class sala:
     
-    def __init__(self,turma):
+    def __init__(self,turma,alunos=[]):
         self.__turma=turma
-        self.__alunos=list()
+        self.__alunos=alunos
+        self.__p=0
+        self.__q=len(alunos)
         
+    def adicionar_aluno(self,aluno):
+        self.__alunos.append(aluno)
+        
+        
+    
+   
+    
+    
+            
     @property
     def turma(self):
         return self.__turma
@@ -195,14 +206,8 @@ def sala(Pessoa):
     def alunos(self):
         return self.__alunos
     
-    def adicionar_aluno(self,aluno):
-        self.__alunos.append(aluno)
-        self.__aluno.sort()
+    
         
-    def __iter__(self):
-        if self.v < 3:
-            return self.t[v]
-            v+=1
 contato=Contato('fyjhchilster.santos@gmail.com','64999786370')
 endereco=Endereco('2001','rua','Bairro','Jataí','GO','Brasil')
 hilster=Pessoa('Hilster Barbosa Santos',contato,endereco)
@@ -219,7 +224,13 @@ print("_"*50,'Teste 4',"_"*50)
 print(hilster)
 hilster.contato.remover_telefone(1)
 print("_"*50,'Teste 5',"_"*50)
-print(hilster)
+#print(hilster)
 turma=sala('Ciência da Computação')
+turma.adicionar_aluno(hilster)
+print(turma.alunos)
+print(hilster)
 
-print(next(turma))
+for i in turma:
+    print(i)
+    
+#print(next(turma))
