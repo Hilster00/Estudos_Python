@@ -193,8 +193,17 @@ class sala:
         self.__alunos.append(aluno)
         
         
+    def __iter__(self):
+        return iter(self.__alunos)
     
-   
+    def __next__(self):
+        if self.__p < self.__q:
+            self.__p+=1
+            return self.__alunos[self.__p-1]
+            
+        else:
+            self.__p=0
+            return self.__alunos[self.__p]
     
     
             
@@ -224,13 +233,13 @@ print("_"*50,'Teste 4',"_"*50)
 print(hilster)
 hilster.contato.remover_telefone(1)
 print("_"*50,'Teste 5',"_"*50)
-#print(hilster)
+print(hilster)
 turma=sala('Ciência da Computação')
 turma.adicionar_aluno(hilster)
-print(turma.alunos)
-print(hilster)
 
+print("_"*50,'Teste 6',"_"*50)
 for i in turma:
     print(i)
     
-#print(next(turma))
+print("_"*50,'Teste 7',"_"*50)
+print(next(turma))
