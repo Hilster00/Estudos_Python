@@ -22,10 +22,6 @@ y = np.array(y)
 
 
 fig, ax = plt.subplots()
-# Redefinindo os limites do eixo x 
-ax.set_xlim(x[0]-100, x[-1]+100)
-# Redefinindo os limites do eixo y
-ax.set_ylim(y[0]-100, y[-1]+100) 
 
 
 print(f'Instante 0:(posição:{x[0]}, velocidade:{y[0]})') 
@@ -35,6 +31,11 @@ for i,v in enumerate(y):
     if v > 0:
         print(f'Instante {i} a velocidade muda de direção, e fica com o valor de {v:.2f}')
         break
+
+# Redefinindo os limites do eixo x 
+ax.set_xlim(x[0]-100, x[-1]+100)
+# Redefinindo os limites do eixo y
+ax.set_ylim(y[0]-100, y[-1]+100) 
     
 plt.scatter(x, y,s=5)
 plt.xlabel('Posição')
@@ -43,12 +44,17 @@ plt.title('Gráfico de Linha 0')
 plt.savefig('grafico0.png')
 plt.show() 
 
+#zera os dados gerados anteriormente 
+plt.subplots()
+
 plt.scatter(x, t,s=5)
 plt.xlabel('Posição')
 plt.ylabel('tempo')
 plt.title('Gráfico de Linha 1')
 plt.savefig('grafico1.png')
-plt.show() 
+plt.show()
+
+plt.subplots()
 
 plt.scatter(y, t,s=5)
 plt.xlabel('Velocidade')
