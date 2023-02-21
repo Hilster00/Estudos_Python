@@ -2,8 +2,8 @@ from Pessoa import Pessoa,Contato,Endereco
 
 class Aluno(Pessoa):
     
-    def _init_(self,nome,contato,endereco,matricula):
-        Pessoa._init_(self,nome,contato,endereco)
+    def __init__(self,nome,contato,endereco,matricula):
+        Pessoa.__init__(self,nome,contato,endereco)
         self.__matricula=matricula
         
         self.i=0 
@@ -14,15 +14,15 @@ class Aluno(Pessoa):
         return self.__matricula
         
     
-    def _str_(self):
-        r=Pessoa._str_(self)
+    def __str__(self):
+        r=Pessoa.__str__(self)
         
         r+=f'\nMatricula:{self.__matricula}'
         return r
         
 class Turma:
     
-    def _init_(self,nome,sigla):
+    def __init__(self,nome,sigla):
         self.__nome=nome
         self.__sigla=sigla
         self.__alunos=[]
@@ -46,19 +46,19 @@ class Turma:
         self.__quantidade_alunos-=1
         self.__i=0
         
-    def _len_(self):
+    def __len__(self):
         
         return self.__quantidade_alunos
         
-    def _getitem_(self,i):
+    def __getitem__(self,i):
         if 0 <= i < self.__quantidade_alunos:
             return self.__alunos[i]
         return None
       
-    def _iter_(self):
+    def __iter__(self):
         return self   
         
-    def _next_(self):
+    def __next__(self):
         
         if self._i < self._quantidade_alunos:
             r = self._alunos[self._i]
@@ -69,7 +69,7 @@ class Turma:
             raise StopIteration
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     apa=Turma('Apa','apa')
     
     contato=Contato('hilsterb.santos@gmail.com','64999786370')
@@ -90,3 +90,4 @@ if _name_ == '_main_':
     
     for i in apa:
         print(i)
+
