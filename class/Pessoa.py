@@ -1,6 +1,6 @@
 class Contato:
     
-    def _init_(self,email,telefone):
+    def __init__(self,email,telefone):
         self.__email=[email]
         self.__telefone=[telefone]
 
@@ -40,7 +40,7 @@ class Contato:
 
 class Endereco:
     
-    def _init_(self,numero,rua,bairro,cidade,estado,pais):
+    def __init__(self,numero,rua,bairro,cidade,estado,pais):
         self.numero=numero
         self.rua=rua
         self.bairro=bairro
@@ -111,7 +111,7 @@ class Endereco:
     def pais(self,pais):
         self.__pais=pais
         
-    def _str_(self):
+    def __str__(self):
         r=f'''Rua:{self.rua}, Numero:{self.numero}, Bairro:{self.bairro}, Cidade:{self.cidade}, Estado:{self.estado}, Pais:{self.pais}'''
         return r
         
@@ -119,7 +119,7 @@ class Endereco:
         
 class Pessoa:
     
-    def _init_(self,nome,contato,endereco):
+    def __init__(self,nome,contato,endereco):
         self.__nome=None
         self.nome=nome
         self.contato=contato
@@ -164,7 +164,7 @@ class Pessoa:
             raise ValueError(f"Indice {indicie} não está no intervalo válido")
     
     
-    def _str_(self):
+    def __str__(self):
         retorno=f'Nome:{self.nome}\n\nE-Mails:\n'
         for i in self.contato.email:
             retorno+=f'{i}\n'
@@ -178,7 +178,7 @@ class Pessoa:
         return retorno
         
         
-if _name_ == '_main_':
+if __name__ == '__main__':
         
     contato=Contato('fyjhchilster.santos@gmail.com','64999786370')
     endereco=Endereco('2001','rua','Bairro','Jataí','GO','Brasil')
