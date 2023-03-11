@@ -18,3 +18,6 @@ arquivo=open("arquivo.txt","rb")
 teste=arquivo.read()
 arquivo.close()
 
+#com o whit não é necessário o comando close
+with open("arquivo.txt","a") as ar:
+    ar.write("teste\n")
